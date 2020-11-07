@@ -20,8 +20,8 @@ class AuthController extends Controller
             $token = $externalPost->getAuthToken(env('APP_API_URL')."/auth/login", $data);
             
             $token = json_decode($token,true);
-            echo $token['access_token'];
-            // $this->tokenController->setAccessToken($token['access_token']);
+            // echo $token['access_token'];
+            $this->tokenController->setAccessToken($token['access_token']);
             // $this->tokenController->getAccessToken();
         }
         catch(Exception $e){

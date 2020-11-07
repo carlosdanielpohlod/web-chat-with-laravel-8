@@ -14,7 +14,7 @@ class TokenController extends Controller
     }
     public function setAccessToken($data){
         $this->sessionVerify();
-        $_SESSION['access_token'] = $data['access_token'];
+        $_SESSION['access_token'] = $data;
     }
     public function getAccessToken(){
         $this->sessionVerify();
