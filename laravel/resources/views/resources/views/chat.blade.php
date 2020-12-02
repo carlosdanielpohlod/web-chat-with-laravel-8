@@ -2,32 +2,54 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Page Title</title>
+    <title>Karlin Zap</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    {{-- <link rel='stylesheet' type='text/css' href='assets/css/style.css'> --}}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 </head>
-<body>
-    <aside>
-        {{-- <img src="assets/imgs/Icon ionic-ios-chatboxes.png" alt="Chat" title="Chat"/> --}}
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large"
+    onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
 
-        <form id="form">
-            <input type="text" placeholder="Digite seu nome..." value="nome padrão" name="name" id="name" />
-            <input type="text" placeholder="Digite sua mensagem..." value="Mensagem" name="message" id="message" />
-        </form>
-
-        <button id="btnSubmit">Enviar</button>
-    </aside>
-
-    <div id="content">
-        
+<div class="w3-teal">
+    <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+      <h1>Carlos Zap</h1>
+    </div>
+</div>
+  
+<body style="background-image:url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/12ee6265-e947-474a-a378-6d78ab0d1117/d8fr7iz-082cab4c-3f87-47e1-b2f0-efdb504372e5.jpg/v1/fill/w_1024,h_576,q_75,strp/super_hero_whatsapp_background_by_x_ama_d8fr7iz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD01NzYiLCJwYXRoIjoiXC9mXC8xMmVlNjI2NS1lOTQ3LTQ3NGEtYTM3OC02ZDc4YWIwZDExMTdcL2Q4ZnI3aXotMDgyY2FiNGMtM2Y4Ny00N2UxLWIyZjAtZWZkYjUwNDM3MmU1LmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.vMsSrJL87xcHSN4_yT8cSlEGqymaknC5rvamCRrnlGU)">
+    
+      
+    <div id="app" class="container mt-4" >
+        <Ballon other  name="Usuario 02" msg="Teste conexão"></Ballon> 
+        <Ballon me  name="Carlos" msg="AAAA testando"></Ballon> 
     </div>
 
-    
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class=" col-md-8">
+                <input class="form-control"> 
+            </div>
+            <div class=" col-md-3">
+                <button class="btn btn-primary"> Enviar </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
-
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
+      
+
     const conn = new WebSocket('ws://localhost:8080');
     conn.onopen = function(e) {
         console.log("Connection established!");
@@ -42,6 +64,15 @@
 </script>
 
 <script>
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
     const formMessage = document.getElementById("form")
     const inputMessage = document.getElementById('message')
     const inputName = document.getElementById("name")

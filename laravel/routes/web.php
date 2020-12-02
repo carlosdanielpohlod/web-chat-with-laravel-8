@@ -28,6 +28,9 @@ Route::post('api.login',[AuthController::class,'login'])->name('api.login');
 
 Route::prefix('chat')->group(function(){
     Route::get('/',function(){
-        return view('chat.message');
+        return view('resources.views.chat');
     });
 });
+
+
+
